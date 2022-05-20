@@ -18,6 +18,6 @@ end
 json.art do
   json.partial! 'arts/art', art: company.art
 end
-json.culuture do
-  json.partial! 'culutures/culuture', culuture: company.culuture
+json.culture do
+  json.partial! 'cultures/culture', culture: company.culture
 end

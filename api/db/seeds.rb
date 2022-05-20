@@ -27,15 +27,15 @@ if Athletic.count.zero?
   Athletic.insert_all instances
 end
 
-if Culuture.count.zero?
-  instances = CSV.open('db/culuture_category.csv', headers: true).to_a.map do |row|
+if Culture.count.zero?
+  instances = CSV.open('db/culture_category.csv', headers: true).to_a.map do |row|
     {
       name: row['name'],
       created_at: Time.now,
       updated_at: Time.now
     }
   end
-  Culuture.insert_all instances
+  Culture.insert_all instances
 end
 
 if Art.count.zero?
@@ -52,7 +52,7 @@ end
 if Rails.env.development?
 
   athletics = Athletic.all.index_by(&:name)
-  culutures = Culuture.all.index_by(&:name)
+  cultures = Culture.all.index_by(&:name)
   arts = Art.all.index_by(&:name)
 
   company_hashes = [
@@ -70,10 +70,10 @@ if Rails.env.development?
     },
     {
       name: 'ヘンゼルとグレーテル',
-      culuture_name: '料理',
+      culture_name: '料理',
       place: '文化大佐館',
       number: 6,
-      company_category: 'culuture',
+      company_category: 'culture',
       detail: '美味しいお菓子を作りましょう！！',
       images_path: 'img/012122.png',
       frequency: 2,
@@ -86,7 +86,7 @@ if Rails.env.development?
     company.update!(
       athletic: athletics[hash[:athletic_name]],
       art: arts[hash[:art_name]],
-      culuture: culutures[hash[:culuture_name]],
+      culture: cultures[hash[:culture_name]],
       number: hash[:number],
       company_category: hash[:company_category],
       place: hash[:place],
