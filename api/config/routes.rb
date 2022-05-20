@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   resources :companies, only: %i[index]
   resources :athletics, only: %i[index]
-  resources :culutures, only: %i[index]
+  resources :cultures, only: %i[index]
   resources :arts, only: %i[index]
 end

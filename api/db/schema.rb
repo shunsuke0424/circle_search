@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_18_080553) do
+ActiveRecord::Schema.define(version: 2022_05_20_104016) do
 
   create_table "arts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -58,17 +58,17 @@ ActiveRecord::Schema.define(version: 2022_05_18_080553) do
     t.index ["company_id"], name: "index_company_athletics_on_company_id"
   end
 
-  create_table "company_culutures", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "company_cultures", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "company_id", null: false
-    t.bigint "culuture_id", null: false
+    t.bigint "culture_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id", "culuture_id"], name: "index_company_culutures_on_company_id_and_culuture_id", unique: true
-    t.index ["company_id"], name: "index_company_culutures_on_company_id"
-    t.index ["culuture_id"], name: "index_company_culutures_on_culuture_id"
+    t.index ["company_id", "culture_id"], name: "index_company_cultures_on_company_id_and_culture_id", unique: true
+    t.index ["company_id"], name: "index_company_cultures_on_company_id"
+    t.index ["culture_id"], name: "index_company_cultures_on_culture_id"
   end
 
-  create_table "culutures", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "cultures", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -78,6 +78,6 @@ ActiveRecord::Schema.define(version: 2022_05_18_080553) do
   add_foreign_key "company_arts", "companies"
   add_foreign_key "company_athletics", "athletics"
   add_foreign_key "company_athletics", "companies"
-  add_foreign_key "company_culutures", "companies"
-  add_foreign_key "company_culutures", "culutures"
+  add_foreign_key "company_cultures", "companies"
+  add_foreign_key "company_cultures", "cultures"
 end
