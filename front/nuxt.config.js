@@ -1,5 +1,6 @@
 import colors from "vuetify/es5/util/colors";
-
+const environment = process.env.NODE_ENV || "development";
+const envSet = require(`./environments/${environment}.ts`);
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -24,7 +25,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ["@/plugins/composition-api", "@/plugins/axios-accessor"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -33,12 +34,17 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     "@nuxt/typescript-build",
+    "@nuxtjs/composition-api/module",
     // https://go.nuxtjs.dev/vuetify
     "@nuxtjs/vuetify",
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxtjs/axios", "@nuxtjs/proxy"],
+  axios: {
+    prefix: envSet.apiBaseUrl,
+    proxy: true,
+  },
   proxy: {
     "/api": {
       target: "http://localhost:3000/",

@@ -1,1 +1,1 @@
-json.companies @companies, partial: '/companies/company', as: :company
+json.companies @companies, partial: 'companies/company', as: :company
