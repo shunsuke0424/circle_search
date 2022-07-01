@@ -1,5 +1,6 @@
 class CulturesController < ApplicationController
   def index
-    @culture = Culture.all
+    @cultures = Culture.all
+    render json: { cultures: @cultures }, status: 200
   end
 end

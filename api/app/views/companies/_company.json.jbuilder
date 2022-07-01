@@ -9,7 +9,7 @@ json.call(
   :frequency,
   :activity_day,
   :sns_link,
-  :company_category,
+  :company_category
 )
 
 json.athletic do
@@ -20,4 +20,7 @@ json.art do
 end
 json.culture do
   json.partial! 'cultures/culture', culture: company.culture
+end
+json.keyword do
+  json.partial! 'keywords/keyword', keyword: company.keyword
 end
