@@ -1,6 +1,7 @@
 import { Art } from "./Art";
 import { Culture } from "./Culture";
 import { Athletic } from "./Athletic";
+import { Keyword } from "./Keyword";
 
 export type Company = {
   id: number;
@@ -16,6 +17,7 @@ export type Company = {
   athletic: Athletic;
   art: Art;
   culture: Culture;
+  keyword: Keyword;
 };
 
 export type CompaniesResponse = {

@@ -1,5 +1,6 @@
 class ArtsController < ApplicationController
   def index
-    @art = Art.all
+    @arts = Art.all
+    render json: { arts: @arts }, status: 200
   end
 end

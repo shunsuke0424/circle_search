@@ -5,6 +5,8 @@ class Company < ApplicationRecord
   has_one :art, through: :company_art
   has_one :company_culture, dependent: :destroy
   has_one :culture, through: :company_culture
+  has_many :company_keywords, dependent: :destroy
+  has_many :keyword, through: :company_keywords
 
   enum activity_day: {
     sunday: 'sunday',
