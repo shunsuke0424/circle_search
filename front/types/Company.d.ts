@@ -23,3 +23,11 @@ export type Company = {
 export type CompaniesResponse = {
   companies: Company[];
 };
+
+export type CompanyIndexParams = {
+  companyCategory: string | null;
+  athleticId: number | null;
+  cultureId: number | null;
+  artId: number | null;
+  // keyword: string | null;
+};

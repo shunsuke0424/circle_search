@@ -1,6 +1,10 @@
 import { Action, Module, Mutation, VuexModule } from "vuex-module-decorators";
 import { $axios } from "@/store/api";
-import { Company, CompaniesResponse } from "@/types/Company";
+import {
+  Company,
+  CompaniesResponse,
+  CompanyIndexParams,
+} from "@/types/Company";
 import { useLoader } from "@/services/useLoader";
 
 @Module({
@@ -24,7 +28,7 @@ export default class CompaniesModule extends VuexModule {
   }
 
   @Action({ rawError: true })
-  async getCompanies() {
+  async getCompanies(params: CompanyIndexParams) {
     const res = await $axios.$get<CompaniesResponse>("/companies");
     this.setCompanies(res.companies);
   }
@@ -35,3 +39,13 @@ export default class CompaniesModule extends VuexModule {
     this.setCompany(company);
   }
 }
+
+// , {
+//   params: {
+//     // keyword: params.keyword,
+//     athleticId: params.athleticId,
+//     cultureId: params.cultureId,
+//     artId: params.artId,
+//     companyCategory: params.companyCategory,
+//   },
+// }
