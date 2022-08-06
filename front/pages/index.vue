@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="title-header">
-      <div class="title">サークル一覧</div>
+      <div class="title">サークル一覧はこちらです！</div>
     </div>
     <div
       class="company-container"
